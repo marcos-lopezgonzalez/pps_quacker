@@ -25,6 +25,21 @@ Para instalar Flask usaremos el gestor de paquetes de Python (pip):
 Las dependencias se encontrarán en el fichero requierents.txt. En caso de querer agregar otras usaremos:
 - pip freeze > requirements.txt
 
+Para desplegar nuestra aplicación utilizamos un contenedor de Docker. Para ello se ha creado el fichero 'DockerFile' para que 
+construya el contenedor con las opciones que queramos. En este caso instalamos las dependencias
+y los ficheros y directorios necesarios para el funcionamiento de nuestra aplicación. También
+establecemos los puertos y variables de entorno que se usarán.
+
+Para crear nuestra imagen de Docker usaremos:
+- docker build -t quacker .
+
+Para poder conectar el contenedor de nuestra aplicación con el de Mongo debemos crear una red en Docker:
+- docker network create quacker-mongo
+
+Para lanzar nuestros contenedores dentro de la red (El nombre del contenedor mongo habrá que cambiarlo en el Dockerfile, en este caso pps_examen):
+- docker run -d --network quacker-mongo -p 27017:27017 pps_examen mongo
+- docker run -d --network quacker-mongo -p 5000:5000 quacker
+
     export MONGO_IP="localhost"
     export MONGO_PORT="27017"
     python app.py
