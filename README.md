@@ -11,7 +11,7 @@ Actualmente sin mantenimiento debido al éxito de la competencia. Si quieres hac
 Aplicación desarrollada en Python (v3.11) con Flask y Mongo como dependencias principales. Levanta primero un servidor de Mongo en local.
 
     docker run -p 27017:27017 -d mongo
-Luego ejecuta la aplicación con
+Luego ejecuta la aplicación, deberás establecer variables de entorno para la sesión.
 
 Como primer paso deberemos crear nuestro entorno virtual, llamésmolo 'pps_examen':
 - python3 -m venv pps_examen
@@ -25,6 +25,8 @@ Para instalar Flask usaremos el gestor de paquetes de Python (pip):
 Las dependencias se encontrarán en el fichero requierents.txt. En caso de querer agregar otras usaremos:
 - pip freeze > requirements.txt
 
+    export MONGO_IP="localhost"
+    export MONGO_PORT="27017"
     python app.py
 
 Desplegará un servidor web en [http://127.0.0.1:5000](http://127.0.0.1:5000)
