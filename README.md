@@ -37,8 +37,12 @@ Para poder conectar el contenedor de nuestra aplicación con el de Mongo debemos
 - docker network create quacker-mongo
 
 Para lanzar nuestros contenedores dentro de la red (El nombre del contenedor mongo habrá que cambiarlo en el Dockerfile, en este caso pps_examen):
-- docker run -d --network quacker-mongo -p 27017:27017 pps_examen mongo
+- docker run -d --network quacker-mongo -p 27017:27017 --name pps_examen mongo
 - docker run -d --network quacker-mongo -p 5000:5000 quacker
+
+Para facilitar el despliegue de nuestra aplicación se ha construido un docker-compose.yml.
+Para lanzar nuestra aplicación ahora simplemente nos bastará con usar:
+- docker compose up
 
     export MONGO_IP="localhost"
     export MONGO_PORT="27017"
