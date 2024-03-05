@@ -10,6 +10,18 @@ Actualmente sin mantenimiento debido al éxito de la competencia. Si quieres hac
 ## Instrucciones de uso
 Aplicación desarrollada en Python (v3.11) con Flask como dependencia principal.
 
+Como primer paso deberemos crear nuestro entorno virtual, llamésmolo 'pps_examen':
+- python3 -m venv pps_examen
+
+Luego deberemos activarlo:
+- source pps_examen/bin/activate
+
+Para instalar Flask usaremos el gestor de paquetes de Python (pip):
+- pip install Flask
+
+Las dependencias se encontrarán en el fichero requierents.txt. En caso de querer agregar otras usaremos:
+- pip freeze > requirements.txt
+
     python app.py
 
 Desplegará un servidor web en [http://127.0.0.1:5000](http://127.0.0.1:5000)
